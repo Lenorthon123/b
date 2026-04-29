@@ -2,25 +2,20 @@
 <html lang="fr">
 
 <head>
-
 <meta charset="UTF-8">
 <title>Questionnaire Étude GPS</title>
-
 <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
 <div class="container">
 
-<h1>Questionnaire Étude GPS</h1>
+<h1>Questionnaire Étude GPS – Abidjan</h1>
 
 <form id="surveyForm">
 
-<!-- SECTION A -->
-
-<h2>SECTION A — Profil</h2>
+<!-- NOM -->
 
 <label>Nom</label>
 <input name="nom" required>
@@ -28,217 +23,237 @@
 <label>Prénom</label>
 <input name="prenom" required>
 
-<label>Q1 — Commune de résidence</label>
+<!-- SECTION A -->
+
+<h2>SECTION A — PROFIL</h2>
+
+<label>Q1 — Dans quelle commune habitez-vous ?</label>
+
 <select name="commune">
 
 <option>Yopougon</option>
 <option>Abobo</option>
 <option>Cocody</option>
-<option>Marcory</option>
+<option>Port-Bouet</option>
 <option>Koumassi</option>
 <option>Adjamé</option>
-<option>Plateau</option>
+<option>Attécoubé</option>
+<option>Marcory</option>
 <option>Treichville</option>
-<option>Port-Bouët</option>
-<option>Anyama</option>
+<option>Plateau</option>
+<option>Anyama / Bingerville / autre</option>
 
 </select>
 
 
-<label>Q2 — Situation principale</label>
+
+<label>Q2 — Quelle est votre situation principale ?</label>
+
 <select name="profil">
 
-<option>Particulier</option>
-<option>Moto-taxi</option>
-<option>Commerçant</option>
-<option>Entreprise / PME</option>
+<option>Particulier — voiture personnelle</option>
+<option>Moto-taxi (zémidjan)</option>
+<option>Commerçant / artisan avec véhicule</option>
+<option>PME avec flotte de véhicules</option>
 <option>Autre</option>
 
 </select>
 
 
-<label>Q3 — Mobile Money utilisé</label>
+
+<label>Q3 — Service Mobile Money utilisé ?</label>
+
 <select name="mobileMoney">
 
 <option>Orange Money</option>
-<option>MTN Money</option>
+<option>MTN Mobile Money</option>
 <option>Wave</option>
 <option>Moov Money</option>
+<option>Je n'utilise pas Mobile Money</option>
 
 </select>
+
 
 
 <!-- SECTION B -->
 
-<h2>SECTION B — Problème</h2>
+<h2>SECTION B — PROBLÈME</h2>
 
-<label>Q4 — Avez-vous déjà subi un vol ?</label>
+<label>Q4 — Avez-vous déjà vécu un vol ou perte ?</label>
+
 <select name="vol">
 
-<option>Oui moi-même</option>
-<option>Oui dans mon entourage</option>
-<option>Non</option>
+<option>Oui moi personnellement</option>
+<option>Oui quelqu'un proche</option>
+<option>Non jamais</option>
 
 </select>
 
 
-<label>Q5 — Quel bien a été volé ?</label>
-<select name="typeBien">
 
-<option>Téléphone</option>
-<option>Moto</option>
-<option>Voiture</option>
-<option>Marchandises</option>
-<option>Autre</option>
+<label>Q5 — Qu'avez-vous fait après ce vol ?</label>
 
-</select>
+<label><input type="checkbox" name="reaction" value="Plainte police"> Porter plainte police</label>
+
+<label><input type="checkbox" name="reaction" value="Assurance"> Contacter assurance</label>
+
+<label><input type="checkbox" name="reaction" value="Application GPS"> Utiliser application GPS</label>
+
+<label><input type="checkbox" name="reaction" value="Réseau"> Mobiliser réseau</label>
+
+<label><input type="checkbox" name="reaction" value="Aucune action"> Accepter perte</label>
+
+<label><input type="checkbox" name="reaction" value="Autre"> Autre</label>
 
 
-<label>Q6 — Niveau d'inquiétude face au vol</label>
+
+<label>Q6 — Niveau d'inquiétude</label>
+
 <select name="inquietude">
 
-<option>1 — Très faible</option>
-<option>2 — Faible</option>
+<option>1 — Pas du tout inquiet</option>
+<option>2 — Peu inquiet</option>
 <option>3 — Moyen</option>
-<option>4 — Élevé</option>
-<option>5 — Très élevé</option>
+<option>4 — Assez inquiet</option>
+<option>5 — Très inquiet</option>
 
 </select>
+
 
 
 <!-- SECTION C -->
 
-<h2>SECTION C — Usage</h2>
+<h2>SECTION C — USAGE</h2>
 
-<label>Q7 — Utilisez-vous déjà un GPS ?</label>
+<label>Q7 — Utilisez-vous un GPS ?</label>
+
 <select name="usage">
 
-<option>Oui</option>
-<option>Non</option>
+<option>Oui j'utilise déjà</option>
+<option>Je connais mais n'utilise pas</option>
+<option>Je ne connais pas</option>
 
 </select>
 
 
-<label>Q8 — Sur quels biens utiliseriez-vous un GPS ?</label>
 
-<select name="usageType">
+<label>Q8 — Fonctionnalités importantes (max 3)</label>
 
-<option>Téléphone</option>
-<option>Moto</option>
-<option>Voiture</option>
-<option>Marchandises</option>
-<option>Enfant</option>
+<label><input type="checkbox" name="features" value="Temps réel"> Position temps réel</label>
+
+<label><input type="checkbox" name="features" value="Alerte mouvement"> Alerte mouvement</label>
+
+<label><input type="checkbox" name="features" value="Coupure batterie"> Alerte coupure</label>
+
+<label><input type="checkbox" name="features" value="Historique"> Historique trajets</label>
+
+<label><input type="checkbox" name="features" value="Zone"> Zone sécurisée</label>
+
+<label><input type="checkbox" name="features" value="Partage"> Partage position</label>
+
+<label><input type="checkbox" name="features" value="Objets"> Localiser objets</label>
+
+<label><input type="checkbox" name="features" value="SMS"> SMS hors internet</label>
+
+
+
+<label>Q9 — Fonctionnement sans internet important ?</label>
+
+<select name="offline">
+
+<option>Oui très important</option>
+<option>Oui assez important</option>
+<option>Peu important</option>
+<option>Sans opinion</option>
 
 </select>
 
-
-<label>Q9 — Où installer le GPS ?</label>
-<select name="installation">
-
-<option>Moi-même</option>
-<option>Technicien</option>
-<option>Peu importe</option>
-
-</select>
 
 
 <!-- SECTION D -->
 
-<h2>SECTION D — Prix</h2>
+<h2>SECTION D — PRIX</h2>
 
-<label>Q10 — Prix acceptable</label>
-<select name="prix">
+<label>Q10 — Prix trop cher</label>
 
-<option>5 000 — 10 000 FCFA</option>
-<option>10 000 — 20 000 FCFA</option>
-<option>20 000 — 30 000 FCFA</option>
-<option>Plus de 30 000 FCFA</option>
+<select name="prixTropCher">
 
-</select>
-
-
-<label>Q11 — Mode de paiement préféré</label>
-<select name="paiement">
-
-<option>Mobile Money</option>
-<option>Espèces</option>
-<option>Carte bancaire</option>
+<option>Moins de 2 000 FCFA</option>
+<option>2 000 — 3 000 FCFA</option>
+<option>3 000 — 5 000 FCFA</option>
+<option>5 000 — 8 000 FCFA</option>
+<option>Plus de 8 000 FCFA</option>
 
 </select>
 
 
-<label>Q12 — Abonnement mensuel acceptable</label>
-<select name="abonnement">
 
-<option>0 FCFA</option>
-<option>500 FCFA</option>
-<option>1 000 FCFA</option>
-<option>Plus de 1 000 FCFA</option>
+<label>Q11 — Prix trop bas suspect</label>
+
+<select name="prixBas">
+
+<option>Moins de 500 FCFA</option>
+<option>500 — 1 000 FCFA</option>
+<option>1 000 — 1 500 FCFA</option>
+<option>1 500 — 2 000 FCFA</option>
+<option>Plus de 2 000 FCFA</option>
 
 </select>
+
+
+
+<label>Q12 — Prix acceptable</label>
+
+<select name="prixAcceptable">
+
+<option>1 500 FCFA</option>
+<option>2 000 FCFA</option>
+<option>2 500 FCFA</option>
+<option>3 000 FCFA</option>
+<option>4 000 FCFA ou plus</option>
+
+</select>
+
+
+
+<label>Q13 — Prix idéal</label>
+
+<select name="prixIdeal">
+
+<option>Moins de 1 000 FCFA</option>
+<option>1 000 — 1 500 FCFA</option>
+<option>1 500 — 2 000 FCFA</option>
+<option>2 000 — 2 500 FCFA</option>
+<option>2 500 FCFA ou plus</option>
+
+</select>
+
 
 
 <!-- SECTION E -->
 
-<h2>SECTION E — Distribution</h2>
+<h2>SECTION E — DISTRIBUTION</h2>
 
-<label>Q13 — Où acheteriez-vous ce produit ?</label>
+<label>Q14 — Canal d'achat préféré</label>
+
 <select name="canal">
 
+<option>Site web livraison domicile</option>
 <option>Boutique physique</option>
-<option>En ligne</option>
-<option>Agent Mobile Money</option>
-
-</select>
-
-
-<label>Q14 — Mode de livraison préféré</label>
-<select name="livraison">
-
-<option>Livraison à domicile</option>
-<option>Retrait en boutique</option>
-
-</select>
-
-
-<label>Q15 — Support souhaité</label>
-<select name="support">
-
-<option>Téléphone</option>
+<option>Opérateur télécom</option>
+<option>Mécanicien</option>
 <option>WhatsApp</option>
-<option>Email</option>
 
 </select>
 
 
-<!-- SECTION F -->
 
-<h2>SECTION F — Final</h2>
+<label>Q15 — Que faudrait-il pour recommander ?</label>
 
-<label>Q16 — Seriez-vous prêt à utiliser ce produit ?</label>
-<select name="intention">
+<textarea name="recommandation"
+rows="4"
+placeholder="Réponse libre..."></textarea>
 
-<option>Oui immédiatement</option>
-<option>Oui probablement</option>
-<option>Peut-être plus tard</option>
-<option>Non</option>
-
-</select>
-
-
-<label>Q17 — Combien de biens souhaitez-vous protéger ?</label>
-<select name="biens">
-
-<option>1</option>
-<option>2 à 3</option>
-<option>4 à 10</option>
-<option>Plus de 10</option>
-
-</select>
-
-
-<label>Q18 — Numéro WhatsApp</label>
-<input name="contact">
 
 
 <button type="submit">
@@ -248,6 +263,7 @@ Envoyer le questionnaire
 </button>
 
 </form>
+
 
 <p id="success" style="display:none;">
 
