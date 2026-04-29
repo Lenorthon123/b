@@ -86,6 +86,25 @@ alert("Identifiants incorrects");
 
 
 
+// ===== BOUTONS =====
+
+const loginBtn = document.getElementById("loginBtn");
+
+if(loginBtn){
+
+loginBtn.addEventListener("click", login);
+
+}
+
+const logoutBtn = document.getElementById("logoutBtn");
+
+if(logoutBtn){
+
+logoutBtn.addEventListener("click", logout);
+
+}
+
+
 // ===== RESTER CONNECTÉ =====
 
 window.onload=function(){
