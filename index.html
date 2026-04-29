@@ -1,10 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <title>Questionnaire Étude GPS</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -17,8 +18,15 @@
 
 <h2>SECTION A — Profil</h2>
 
+<label>Nom</label>
+<input name="nom" required>
+
+<label>Prénom</label>
+<input name="prenom" required>
+
 <label>Q1 Commune</label>
 <select name="commune">
+
 <option>Yopougon</option>
 <option>Abobo</option>
 <option>Cocody</option>
@@ -29,148 +37,89 @@
 <option>Treichville</option>
 <option>Plateau</option>
 <option>Anyama</option>
+
 </select>
 
 <label>Q2 Situation principale</label>
 <select name="profil">
+
 <option>Particulier</option>
 <option>Moto-taxi</option>
 <option>Commerçant</option>
 <option>PME</option>
 <option>Autre</option>
+
 </select>
 
 <label>Q3 Mobile Money utilisé</label>
 <select name="mobileMoney">
+
 <option>Orange Money</option>
 <option>MTN Money</option>
 <option>Wave</option>
 <option>Moov Money</option>
+
 </select>
 
 <h2>SECTION B — Problème vécu</h2>
 
 <label>Q4 Avez-vous déjà vécu un vol ?</label>
 <select name="vol">
+
 <option>Oui moi</option>
 <option>Oui entourage</option>
 <option>Non</option>
+
 </select>
 
 <label>Q6 Niveau d'inquiétude</label>
 <select name="inquietude">
+
 <option>1</option>
 <option>2</option>
 <option>3</option>
 <option>4</option>
 <option>5</option>
+
 </select>
-
-<h2>SECTION C — Usage</h2>
-
-<label>Q7 Connaissez-vous GPS ?</label>
-<select name="gps">
-<option>Oui utilisateur</option>
-<option>Je connais</option>
-<option>Non</option>
-</select>
-
-<label>Q8 Fonction la plus importante</label>
-<select name="fonction">
-<option>Position temps réel</option>
-<option>Alerte mouvement</option>
-<option>Historique trajets</option>
-<option>Zone sécurité</option>
-<option>SMS hors ligne</option>
-</select>
-
-<label>Q9 Mode hors internet important ?</label>
-<select name="offline">
-<option>Très important</option>
-<option>Assez important</option>
-<option>Peu important</option>
-<option>Sans opinion</option>
-</select>
-
-<h2>SECTION D — Prix</h2>
-
-<label>Q10 Prix trop cher</label>
-<select name="prix_trop_cher">
-<option>&lt;2000</option>
-<option>2000-3000</option>
-<option>3000-5000</option>
-<option>5000-8000</option>
-<option>&gt;8000</option>
-</select>
-
-<label>Q11 Prix trop bas suspect</label>
-<select name="prix_bas">
-<option>&lt;500</option>
-<option>500-1000</option>
-<option>1000-1500</option>
-<option>1500-2000</option>
-<option>&gt;2000</option>
-</select>
-
-<label>Q12 Prix acceptable</label>
-<select name="prix_accept">
-<option>1500</option>
-<option>2000</option>
-<option>2500</option>
-<option>3000</option>
-<option>4000+</option>
-</select>
-
-<label>Q13 Prix idéal</label>
-<select name="prix_ideal">
-<option>&lt;1000</option>
-<option>1000-1500</option>
-<option>1500-2000</option>
-<option>2000-2500</option>
-<option>&gt;2500</option>
-</select>
-
-<h2>SECTION E — Distribution</h2>
-
-<label>Q14 Canal d'achat</label>
-<select name="achat">
-<option>Site web</option>
-<option>Boutique</option>
-<option>Opérateur</option>
-<option>Revendeur</option>
-<option>WhatsApp</option>
-</select>
-
-<label>Q15 Que faut-il pour recommander ?</label>
-<input name="recommendation" placeholder="Votre réponse">
 
 <h2>Nouvelles Questions</h2>
 
 <label>Q16 Seriez-vous prêt à essayer ?</label>
 <select name="intention">
+
 <option>Oui immédiatement</option>
 <option>Oui probablement</option>
 <option>Peut-être plus tard</option>
 <option>Non</option>
+
 </select>
 
 <label>Q17 Nombre de biens</label>
 <select name="biens">
+
 <option>1</option>
 <option>2-3</option>
 <option>4-10</option>
 <option>Plus de 10</option>
+
 </select>
 
-<label>Q18 Numéro WhatsApp (optionnel)</label>
-<input name="contact" placeholder="Numéro">
+<label>Q18 Numéro WhatsApp</label>
+<input name="contact">
 
-<button type="submit">Envoyer</button>
+<button type="submit">
+
+Envoyer
+
+</button>
 
 </form>
 
 <p id="success" style="display:none;">
+
 Merci pour votre réponse 🙏
+
 </p>
 
 </div>
