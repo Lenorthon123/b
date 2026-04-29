@@ -38,16 +38,35 @@ label {
 display: block;
 margin-top: 15px;
 font-weight: 600;
-color: #333;
+color: #1e40af; /* bleu */
 }
 
-input, select {
+input, select, textarea {
 width: 100%;
 padding: 12px;
 margin-top: 6px;
 border-radius: 8px;
 border: 1px solid #ddd;
 font-size: 14px;
+}
+
+textarea {
+resize: vertical;
+}
+
+/* ===== CHECKBOX ===== */
+
+input[type="checkbox"] {
+width: auto;
+margin-right: 8px;
+}
+
+.checkboxGroup {
+background: #f8fafc;
+padding: 12px;
+border-radius: 10px;
+margin-top: 8px;
+border: 1px solid #eee;
 }
 
 /* ===== BOUTON ===== */
@@ -112,6 +131,8 @@ border-radius: 12px;
 border-left: 6px solid #d6b98c;
 }
 
+/* ===== LOGOUT ===== */
+
 .logoutBtn {
 background: #dc2626;
 margin-bottom: 15px;
@@ -119,4 +140,48 @@ margin-bottom: 15px;
 
 .logoutBtn:hover {
 background: #b91c1c;
+}
+
+/* ===== QUESTIONS / REPONSES DASHBOARD ===== */
+
+.qa {
+margin-bottom: 12px;
+padding: 10px;
+border-bottom: 1px solid #eee;
+display: flex;
+flex-direction: column;
+}
+
+.question {
+font-weight: bold;
+color: #1e40af; /* bleu */
+font-size: 14px;
+margin-bottom: 4px;
+}
+
+.answer {
+color: #444;
+background: #f8fafc;
+padding: 10px;
+border-radius: 8px;
+border-left: 4px solid #d6b98c; /* beige */
+font-size: 14px;
+line-height: 1.4;
+}
+
+/* Pour réponses multiples */
+
+.answer.multi {
+background: #fef3c7;
+border-left: 4px solid #f59e0b;
+}
+
+/* ===== SEPARATION VISUELLE FORMULAIRE ===== */
+
+.sectionBox {
+background: #fafafa;
+padding: 20px;
+border-radius: 12px;
+margin-top: 20px;
+border: 1px solid #eee;
 }
