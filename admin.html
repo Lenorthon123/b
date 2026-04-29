@@ -22,41 +22,67 @@
 
 <div id="login">
 
-<input id="email"
-placeholder="Email">
+<input id="email" placeholder="Email">
 
 <input id="password"
 type="password"
 placeholder="Mot de passe">
 
 <button onclick="login()">
-
 Connexion
-
 </button>
 
 </div>
 
 
-
 <!-- DASHBOARD -->
 
-<div id="dashboard"
-style="display:none;">
+<div id="dashboard" style="display:none;">
 
-<button onclick="logout()"
-class="logoutBtn">
-
+<button onclick="logout()" class="logoutBtn">
 Déconnexion
-
 </button>
 
-<h2>Répondants</h2>
+<h2>Réponses</h2>
 
-<div id="nameList"
-class="nameList">
+<div class="tableWrapper">
 
-<!-- Les noms apparaissent ici -->
+<table id="responsesTable">
+
+<thead>
+
+<tr>
+
+<th>Nom</th>
+
+<th>Q1</th>
+<th>Q2</th>
+<th>Q3</th>
+<th>Q4</th>
+<th>Q5</th>
+<th>Q6</th>
+<th>Q7</th>
+<th>Q8</th>
+<th>Q9</th>
+<th>Q10</th>
+<th>Q11</th>
+<th>Q12</th>
+<th>Q13</th>
+<th>Q14</th>
+<th>Q15</th>
+<th>Q16</th>
+<th>Q17</th>
+<th>Q18</th>
+
+</tr>
+
+</thead>
+
+<tbody id="tableBody">
+
+</tbody>
+
+</table>
 
 </div>
 
