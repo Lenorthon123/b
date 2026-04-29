@@ -1,5 +1,8 @@
-// Sauvegarde des réponses
-let responses = JSON.parse(localStorage.getItem("responses") || "[]");
+// ===== GESTION DES REPONSES =====
+
+let responses = JSON.parse(
+localStorage.getItem("responses") || "[]"
+);
 
 // ===== FORMULAIRE =====
 
@@ -40,10 +43,9 @@ const password=document.getElementById("password").value;
 
 if(email==="dkoffi002@gmail.com" && password==="1234"){
 
-document.getElementById("login").style.display="none";
-document.getElementById("dashboard").style.display="block";
+localStorage.setItem("adminLogged","true");
 
-loadTable();
+showDashboard();
 
 }else{
 
@@ -54,33 +56,105 @@ alert("Identifiants incorrects");
 }
 
 
-// ===== TABLE ADMIN =====
+// ===== RESTER CONNECTE =====
 
-function loadTable(){
+window.onload=function(){
 
-responses = JSON.parse(localStorage.getItem("responses") || "[]");
+if(localStorage.getItem("adminLogged")==="true"){
 
-document.getElementById("count").innerText =
-"Nombre total : " + responses.length;
+showDashboard();
 
-const tbody=document.getElementById("tbody");
+}
 
-tbody.innerHTML="";
+}
 
-responses.forEach(r=>{
 
-const row=document.createElement("tr");
+// ===== AFFICHER DASHBOARD =====
 
-row.innerHTML=
-"<td>"+(r.nom||"")+"</td>"+
-"<td>"+(r.prenom||"")+"</td>"+
-"<td>"+(r.commune||"")+"</td>"+
-"<td>"+(r.inquietude||"")+"</td>"+
-"<td>"+(r.intention||"")+"</td>"+
-"<td>"+(r.contact||"")+"</td>";
+function showDashboard(){
 
-tbody.appendChild(row);
+document.getElementById("login").style.display="none";
+document.getElementById("dashboard").style.display="block";
+
+loadNames();
+
+}
+
+
+// ===== LISTE DES NOMS =====
+
+function loadNames(){
+
+responses = JSON.parse(
+localStorage.getItem("responses") || "[]"
+);
+
+const list=document.getElementById("nameList");
+
+list.innerHTML="";
+
+responses.forEach((r,index)=>{
+
+const div=document.createElement("div");
+
+div.className="nameCard";
+
+div.innerText=
+(r.nom||"Sans nom")+" "+
+(r.prenom||"");
+
+div.onclick=function(){
+
+showDetails(index);
+
+};
+
+list.appendChild(div);
 
 });
+
+}
+
+
+// ===== DETAILS PERSONNE =====
+
+function showDetails(index){
+
+const r = responses[index];
+
+const details=document.getElementById("details");
+
+details.innerHTML=`
+
+<h2>${r.nom} ${r.prenom}</h2>
+
+<p><b>Commune :</b> ${r.commune||""}</p>
+
+<p><b>Profil :</b> ${r.profil||""}</p>
+
+<p><b>Mobile Money :</b> ${r.mobileMoney||""}</p>
+
+<p><b>Vol :</b> ${r.vol||""}</p>
+
+<p><b>Inquiétude :</b> ${r.inquietude||""}</p>
+
+<p><b>Intention :</b> ${r.intention||""}</p>
+
+<p><b>Biens :</b> ${r.biens||""}</p>
+
+<p><b>Contact :</b> ${r.contact||""}</p>
+
+`;
+
+}
+
+
+// ===== DECONNEXION =====
+
+function logout(){
+
+localStorage.removeItem("adminLogged");
+
+location.reload();
 
 }
