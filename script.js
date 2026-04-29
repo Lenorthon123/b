@@ -177,3 +177,7 @@ localStorage.removeItem("adminLogged");
 location.reload();
 
 }
+// rendre les fonctions accessibles au HTML
+
+window.login = login;
+window.logout = logout;
