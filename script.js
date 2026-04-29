@@ -1,8 +1,9 @@
-// ===== STOCKAGE =====
-
-let responses = JSON.parse(
-localStorage.getItem("responses") || "[]"
-);
+import {
+db,
+collection,
+addDoc,
+getDocs
+} from "./firebase.js";
 
 
 // ===== FORMULAIRE =====
@@ -11,7 +12,7 @@ const form = document.getElementById("surveyForm");
 
 if (form) {
 
-form.addEventListener("submit", function(e){
+form.addEventListener("submit", async function(e){
 
 e.preventDefault();
 
@@ -35,16 +36,26 @@ data[key] = value;
 
 });
 
-responses.push(data);
+try {
 
-localStorage.setItem(
-"responses",
-JSON.stringify(responses)
+// ENVOI VERS FIREBASE
+
+await addDoc(
+collection(db,"responses"),
+data
 );
 
 document.getElementById("success").style.display="block";
 
 this.reset();
+
+}catch(error){
+
+alert("Erreur enregistrement");
+
+console.error(error);
+
+}
 
 });
 
@@ -102,19 +113,23 @@ loadTable();
 
 
 
-// ===== TABLE =====
+// ===== CHARGER TABLE FIREBASE =====
 
-function loadTable(){
+async function loadTable(){
 
-responses = JSON.parse(
-localStorage.getItem("responses") || "[]"
+const querySnapshot = await getDocs(
+collection(db,"responses")
 );
 
 const body=document.getElementById("tableBody");
 
+if(!body) return;
+
 body.innerHTML="";
 
-responses.forEach(r=>{
+querySnapshot.forEach((doc)=>{
+
+let r = doc.data();
 
 body.innerHTML+=`
 
@@ -138,10 +153,10 @@ ${r.nom||""} ${r.prenom||""}
 <td>${r.prixAcceptable||"—"}</td>
 <td>${r.prixIdeal||"—"}</td>
 <td>${r.canal||"—"}</td>
-<td>${r.recommandation||"—"}</td>
 <td>${r.intention||"—"}</td>
 <td>${r.biens||"—"}</td>
 <td>${r.contact||"—"}</td>
+<td>${r.recommandation||"—"}</td>
 
 </tr>
 
