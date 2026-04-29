@@ -4,8 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
-
-<title>Questionnaire GPS</title>
+<title>Questionnaire Étude GPS</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -19,6 +18,8 @@
 
 <form id="surveyForm">
 
+<!-- SECTION A -->
+
 <h2>SECTION A — Profil</h2>
 
 <label>Nom</label>
@@ -27,86 +28,222 @@
 <label>Prénom</label>
 <input name="prenom" required>
 
-<label>Q1 Commune</label>
-<input name="commune">
+<label>Q1 — Commune de résidence</label>
+<select name="commune">
 
-<label>Q2 Situation principale</label>
-<input name="profil">
-
-<label>Q3 Mobile Money</label>
-<input name="mobileMoney">
-
-
-<h2>SECTION B — Problème</h2>
-
-<label>Q4 Avez-vous déjà subi un vol ?</label>
-<input name="vol">
-
-<label>Q5 Quel type de bien ?</label>
-<input name="typeBien">
-
-<label>Q6 Niveau d'inquiétude</label>
-<select name="inquietude">
-
-<option>1</option>
-<option>2</option>
-<option>3</option>
-<option>4</option>
-<option>5</option>
+<option>Yopougon</option>
+<option>Abobo</option>
+<option>Cocody</option>
+<option>Marcory</option>
+<option>Koumassi</option>
+<option>Adjamé</option>
+<option>Plateau</option>
+<option>Treichville</option>
+<option>Port-Bouët</option>
+<option>Anyama</option>
 
 </select>
 
 
+<label>Q2 — Situation principale</label>
+<select name="profil">
+
+<option>Particulier</option>
+<option>Moto-taxi</option>
+<option>Commerçant</option>
+<option>Entreprise / PME</option>
+<option>Autre</option>
+
+</select>
+
+
+<label>Q3 — Mobile Money utilisé</label>
+<select name="mobileMoney">
+
+<option>Orange Money</option>
+<option>MTN Money</option>
+<option>Wave</option>
+<option>Moov Money</option>
+
+</select>
+
+
+<!-- SECTION B -->
+
+<h2>SECTION B — Problème</h2>
+
+<label>Q4 — Avez-vous déjà subi un vol ?</label>
+<select name="vol">
+
+<option>Oui moi-même</option>
+<option>Oui dans mon entourage</option>
+<option>Non</option>
+
+</select>
+
+
+<label>Q5 — Quel bien a été volé ?</label>
+<select name="typeBien">
+
+<option>Téléphone</option>
+<option>Moto</option>
+<option>Voiture</option>
+<option>Marchandises</option>
+<option>Autre</option>
+
+</select>
+
+
+<label>Q6 — Niveau d'inquiétude face au vol</label>
+<select name="inquietude">
+
+<option>1 — Très faible</option>
+<option>2 — Faible</option>
+<option>3 — Moyen</option>
+<option>4 — Élevé</option>
+<option>5 — Très élevé</option>
+
+</select>
+
+
+<!-- SECTION C -->
+
 <h2>SECTION C — Usage</h2>
 
-<label>Q7 Utilisez-vous GPS ?</label>
-<input name="usage">
+<label>Q7 — Utilisez-vous déjà un GPS ?</label>
+<select name="usage">
 
-<label>Q8 Quels usages ?</label>
-<input name="usageType">
+<option>Oui</option>
+<option>Non</option>
 
-<label>Q9 Où installer ?</label>
-<input name="installation">
+</select>
 
+
+<label>Q8 — Sur quels biens utiliseriez-vous un GPS ?</label>
+
+<select name="usageType">
+
+<option>Téléphone</option>
+<option>Moto</option>
+<option>Voiture</option>
+<option>Marchandises</option>
+<option>Enfant</option>
+
+</select>
+
+
+<label>Q9 — Où installer le GPS ?</label>
+<select name="installation">
+
+<option>Moi-même</option>
+<option>Technicien</option>
+<option>Peu importe</option>
+
+</select>
+
+
+<!-- SECTION D -->
 
 <h2>SECTION D — Prix</h2>
 
-<label>Q10 Prix acceptable</label>
-<input name="prix">
+<label>Q10 — Prix acceptable</label>
+<select name="prix">
 
-<label>Q11 Paiement</label>
-<input name="paiement">
+<option>5 000 — 10 000 FCFA</option>
+<option>10 000 — 20 000 FCFA</option>
+<option>20 000 — 30 000 FCFA</option>
+<option>Plus de 30 000 FCFA</option>
 
-<label>Q12 Abonnement</label>
-<input name="abonnement">
+</select>
 
+
+<label>Q11 — Mode de paiement préféré</label>
+<select name="paiement">
+
+<option>Mobile Money</option>
+<option>Espèces</option>
+<option>Carte bancaire</option>
+
+</select>
+
+
+<label>Q12 — Abonnement mensuel acceptable</label>
+<select name="abonnement">
+
+<option>0 FCFA</option>
+<option>500 FCFA</option>
+<option>1 000 FCFA</option>
+<option>Plus de 1 000 FCFA</option>
+
+</select>
+
+
+<!-- SECTION E -->
 
 <h2>SECTION E — Distribution</h2>
 
-<label>Q13 Où acheter ?</label>
-<input name="canal">
+<label>Q13 — Où acheteriez-vous ce produit ?</label>
+<select name="canal">
 
-<label>Q14 Mode livraison</label>
-<input name="livraison">
+<option>Boutique physique</option>
+<option>En ligne</option>
+<option>Agent Mobile Money</option>
 
-<label>Q15 Support souhaité</label>
-<input name="support">
+</select>
 
+
+<label>Q14 — Mode de livraison préféré</label>
+<select name="livraison">
+
+<option>Livraison à domicile</option>
+<option>Retrait en boutique</option>
+
+</select>
+
+
+<label>Q15 — Support souhaité</label>
+<select name="support">
+
+<option>Téléphone</option>
+<option>WhatsApp</option>
+<option>Email</option>
+
+</select>
+
+
+<!-- SECTION F -->
 
 <h2>SECTION F — Final</h2>
 
-<label>Q16 Intention</label>
-<input name="intention">
+<label>Q16 — Seriez-vous prêt à utiliser ce produit ?</label>
+<select name="intention">
 
-<label>Q17 Nombre biens</label>
-<input name="biens">
+<option>Oui immédiatement</option>
+<option>Oui probablement</option>
+<option>Peut-être plus tard</option>
+<option>Non</option>
 
-<label>Q18 Contact WhatsApp</label>
+</select>
+
+
+<label>Q17 — Combien de biens souhaitez-vous protéger ?</label>
+<select name="biens">
+
+<option>1</option>
+<option>2 à 3</option>
+<option>4 à 10</option>
+<option>Plus de 10</option>
+
+</select>
+
+
+<label>Q18 — Numéro WhatsApp</label>
 <input name="contact">
+
 
 <button type="submit">
 
-Envoyer
+Envoyer le questionnaire
 
 </button>
 
