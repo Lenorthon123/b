@@ -4,6 +4,7 @@ let responses = JSON.parse(
 localStorage.getItem("responses") || "[]"
 );
 
+
 // ===== FORMULAIRE =====
 
 const form = document.getElementById("surveyForm");
@@ -34,7 +35,7 @@ this.reset();
 }
 
 
-// ===== LOGIN ADMIN =====
+// ===== LOGIN =====
 
 function login(){
 
@@ -56,7 +57,7 @@ alert("Identifiants incorrects");
 }
 
 
-// ===== RESTER CONNECTE =====
+// ===== RESTER CONNECTÉ =====
 
 window.onload=function(){
 
@@ -81,7 +82,8 @@ loadNames();
 }
 
 
-// ===== LISTE DES NOMS =====
+
+// ===== MENU DÉROULANT =====
 
 let openedIndex = null;
 
@@ -107,29 +109,11 @@ card.innerHTML=`
 ${r.nom || "Sans nom"} ${r.prenom || ""}
 </div>
 
-<div class="nameDetails" id="details-${index}" style="display:none;">
+<div class="detailsBox"
+id="details-${index}"
+style="display:none;">
 
-<p><b>Commune :</b> ${r.commune||""}</p>
-
-<p><b>Profil :</b> ${r.profil||""}</p>
-
-<p><b>Mobile Money :</b> ${r.mobileMoney||""}</p>
-
-<p><b>Vol :</b> ${r.vol||""}</p>
-
-<p><b>Inquiétude :</b> ${r.inquietude||""}</p>
-
-<p><b>Utilisation GPS :</b> ${r.usage||""}</p>
-
-<p><b>Prix acceptable :</b> ${r.prix||""}</p>
-
-<p><b>Canal achat :</b> ${r.canal||""}</p>
-
-<p><b>Intention :</b> ${r.intention||""}</p>
-
-<p><b>Nombre biens :</b> ${r.biens||""}</p>
-
-<p><b>Contact :</b> ${r.contact||""}</p>
+${createDetailsHTML(r)}
 
 </div>
 
@@ -148,6 +132,109 @@ list.appendChild(card);
 }
 
 
+
+// ===== DETAILS COMPLETS =====
+
+function createDetailsHTML(r){
+
+return `
+
+<div class="qa">
+<span class="question">Commune :</span>
+<span class="answer">${r.commune||""}</span>
+</div>
+
+<div class="qa">
+<span class="question">Profil :</span>
+<span class="answer">${r.profil||""}</span>
+</div>
+
+<div class="qa">
+<span class="question">Mobile Money :</span>
+<span class="answer">${r.mobileMoney||""}</span>
+</div>
+
+<div class="qa">
+<span class="question">Vol :</span>
+<span class="answer">${r.vol||""}</span>
+</div>
+
+<div class="qa">
+<span class="question">Réaction :</span>
+<span class="answer">${r.reaction||""}</span>
+</div>
+
+<div class="qa">
+<span class="question">Inquiétude :</span>
+<span class="answer">${r.inquietude||""}</span>
+</div>
+
+<div class="qa">
+<span class="question">Usage GPS :</span>
+<span class="answer">${r.usage||""}</span>
+</div>
+
+<div class="qa">
+<span class="question">Fonctionnalités :</span>
+<span class="answer">${r.features||""}</span>
+</div>
+
+<div class="qa">
+<span class="question">Offline :</span>
+<span class="answer">${r.offline||""}</span>
+</div>
+
+<div class="qa">
+<span class="question">Prix trop cher :</span>
+<span class="answer">${r.prixTropCher||""}</span>
+</div>
+
+<div class="qa">
+<span class="question">Prix bas :</span>
+<span class="answer">${r.prixBas||""}</span>
+</div>
+
+<div class="qa">
+<span class="question">Prix acceptable :</span>
+<span class="answer">${r.prixAcceptable||""}</span>
+</div>
+
+<div class="qa">
+<span class="question">Prix idéal :</span>
+<span class="answer">${r.prixIdeal||""}</span>
+</div>
+
+<div class="qa">
+<span class="question">Canal :</span>
+<span class="answer">${r.canal||""}</span>
+</div>
+
+<div class="qa">
+<span class="question">Recommandation :</span>
+<span class="answer">${r.recommandation||""}</span>
+</div>
+
+<div class="qa">
+<span class="question">Intention :</span>
+<span class="answer">${r.intention||""}</span>
+</div>
+
+<div class="qa">
+<span class="question">Biens :</span>
+<span class="answer">${r.biens||""}</span>
+</div>
+
+<div class="qa">
+<span class="question">Contact :</span>
+<span class="answer">${r.contact||""}</span>
+</div>
+
+`;
+
+}
+
+
+
 // ===== OUVRIR / FERMER =====
 
 function toggleDetails(index){
@@ -156,18 +243,13 @@ const details=document.getElementById(
 `details-${index}`
 );
 
-// Si déjà ouvert → fermer
-
 if(openedIndex===index){
 
 details.style.display="none";
 openedIndex=null;
-
 return;
 
 }
-
-// Fermer ancien
 
 if(openedIndex!==null){
 
@@ -177,13 +259,11 @@ document.getElementById(
 
 }
 
-// Ouvrir nouveau
-
 details.style.display="block";
-
 openedIndex=index;
 
 }
+
 
 
 // ===== LOGOUT =====
