@@ -9,12 +9,21 @@ background: #f8f5ef; /* beige clair */
 /* ===== CONTAINER ===== */
 
 .container {
-max-width: 900px;
-margin: 40px auto;
+
+max-width: 1500px; /* plus large */
+
+width: 95%;
+
+margin: 30px auto;
+
 background: white;
+
 padding: 30px;
+
 border-radius: 14px;
+
 box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+
 }
 
 /* ===== TITRES ===== */
@@ -230,4 +239,47 @@ td:first-child {
 font-weight: bold;
 background: #e0f2fe;
 
+}
+
+/* ===== TABLE PLUS LISIBLE ===== */
+
+th {
+
+padding: 14px;
+font-size: 14px;
+white-space: nowrap;
+
+}
+
+td {
+
+padding: 14px;
+font-size: 14px;
+line-height: 1.5;
+vertical-align: top;
+
+}
+
+/* Largeur minimum des colonnes */
+
+th, td {
+
+min-width: 140px;
+
+}
+
+/* Colonne NOM plus large */
+
+td:first-child,
+th:first-child {
+
+min-width: 200px;
+
+}
+
+/* Scroll horizontal propre */
+
+.tableContainer {
+
+overflow-x: auto;
 }
