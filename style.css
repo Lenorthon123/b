@@ -185,3 +185,49 @@ border-radius: 12px;
 margin-top: 20px;
 border: 1px solid #eee;
 }
+
+/* ===== TABLE DASHBOARD ===== */
+
+.tableContainer {
+
+overflow-x: auto;
+
+}
+
+table {
+
+width: 100%;
+border-collapse: collapse;
+margin-top: 20px;
+
+}
+
+th {
+
+background: #1e40af;
+color: white;
+padding: 10px;
+font-size: 13px;
+
+}
+
+td {
+
+padding: 10px;
+border-bottom: 1px solid #eee;
+font-size: 13px;
+
+}
+
+tr:hover {
+
+background: #f1f5f9;
+
+}
+
+td:first-child {
+
+font-weight: bold;
+background: #e0f2fe;
+
+}
