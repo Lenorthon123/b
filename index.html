@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
+
 <meta charset="UTF-8">
-<title>Questionnaire Étude GPS</title>
+
+<title>Questionnaire GPS</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -25,52 +28,22 @@
 <input name="prenom" required>
 
 <label>Q1 Commune</label>
-<select name="commune">
-
-<option>Yopougon</option>
-<option>Abobo</option>
-<option>Cocody</option>
-<option>Port-Bouet</option>
-<option>Koumassi</option>
-<option>Adjamé</option>
-<option>Marcory</option>
-<option>Treichville</option>
-<option>Plateau</option>
-<option>Anyama</option>
-
-</select>
+<input name="commune">
 
 <label>Q2 Situation principale</label>
-<select name="profil">
+<input name="profil">
 
-<option>Particulier</option>
-<option>Moto-taxi</option>
-<option>Commerçant</option>
-<option>PME</option>
-<option>Autre</option>
+<label>Q3 Mobile Money</label>
+<input name="mobileMoney">
 
-</select>
 
-<label>Q3 Mobile Money utilisé</label>
-<select name="mobileMoney">
+<h2>SECTION B — Problème</h2>
 
-<option>Orange Money</option>
-<option>MTN Money</option>
-<option>Wave</option>
-<option>Moov Money</option>
+<label>Q4 Avez-vous déjà subi un vol ?</label>
+<input name="vol">
 
-</select>
-
-<h2>SECTION B — Problème vécu</h2>
-
-<label>Q4 Avez-vous déjà vécu un vol ?</label>
-<select name="vol">
-
-<option>Oui moi</option>
-<option>Oui entourage</option>
-<option>Non</option>
-
-</select>
+<label>Q5 Quel type de bien ?</label>
+<input name="typeBien">
 
 <label>Q6 Niveau d'inquiétude</label>
 <select name="inquietude">
@@ -83,29 +56,52 @@
 
 </select>
 
-<h2>Nouvelles Questions</h2>
 
-<label>Q16 Seriez-vous prêt à essayer ?</label>
-<select name="intention">
+<h2>SECTION C — Usage</h2>
 
-<option>Oui immédiatement</option>
-<option>Oui probablement</option>
-<option>Peut-être plus tard</option>
-<option>Non</option>
+<label>Q7 Utilisez-vous GPS ?</label>
+<input name="usage">
 
-</select>
+<label>Q8 Quels usages ?</label>
+<input name="usageType">
 
-<label>Q17 Nombre de biens</label>
-<select name="biens">
+<label>Q9 Où installer ?</label>
+<input name="installation">
 
-<option>1</option>
-<option>2-3</option>
-<option>4-10</option>
-<option>Plus de 10</option>
 
-</select>
+<h2>SECTION D — Prix</h2>
 
-<label>Q18 Numéro WhatsApp</label>
+<label>Q10 Prix acceptable</label>
+<input name="prix">
+
+<label>Q11 Paiement</label>
+<input name="paiement">
+
+<label>Q12 Abonnement</label>
+<input name="abonnement">
+
+
+<h2>SECTION E — Distribution</h2>
+
+<label>Q13 Où acheter ?</label>
+<input name="canal">
+
+<label>Q14 Mode livraison</label>
+<input name="livraison">
+
+<label>Q15 Support souhaité</label>
+<input name="support">
+
+
+<h2>SECTION F — Final</h2>
+
+<label>Q16 Intention</label>
+<input name="intention">
+
+<label>Q17 Nombre biens</label>
+<input name="biens">
+
+<label>Q18 Contact WhatsApp</label>
 <input name="contact">
 
 <button type="submit">
@@ -127,4 +123,5 @@ Merci pour votre réponse 🙏
 <script src="script.js"></script>
 
 </body>
+
 </html>
