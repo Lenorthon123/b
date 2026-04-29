@@ -15,9 +15,25 @@ form.addEventListener("submit", function(e){
 
 e.preventDefault();
 
-const data = Object.fromEntries(
-new FormData(this).entries()
-);
+let formData = new FormData(this);
+
+let data = {};
+
+// ===== GESTION CHECKBOX MULTIPLES =====
+
+formData.forEach((value,key)=>{
+
+if(data[key]){
+
+data[key] += ", " + value;
+
+}else{
+
+data[key] = value;
+
+}
+
+});
 
 responses.push(data);
 
@@ -33,6 +49,7 @@ this.reset();
 });
 
 }
+
 
 
 // ===== LOGIN =====
@@ -57,6 +74,7 @@ alert("Identifiants incorrects");
 }
 
 
+
 // ===== RESTER CONNECTÉ =====
 
 window.onload=function(){
@@ -68,6 +86,7 @@ showDashboard();
 }
 
 }
+
 
 
 // ===== DASHBOARD =====
@@ -83,7 +102,7 @@ loadNames();
 
 
 
-// ===== MENU DÉROULANT =====
+// ===== MENU NOMS =====
 
 let openedIndex = null;
 
@@ -139,94 +158,49 @@ function createDetailsHTML(r){
 
 return `
 
-<div class="qa">
-<span class="question">Commune :</span>
-<span class="answer">${r.commune||""}</span>
-</div>
+${createQA("Q1 — Commune", r.commune)}
+${createQA("Q2 — Profil", r.profil)}
+${createQA("Q3 — Mobile Money", r.mobileMoney)}
+${createQA("Q4 — Vol", r.vol)}
+${createQA("Q5 — Réaction", r.reaction,true)}
+${createQA("Q6 — Inquiétude", r.inquietude)}
+${createQA("Q7 — Usage GPS", r.usage)}
+${createQA("Q8 — Fonctionnalités", r.features,true)}
+${createQA("Q9 — Offline", r.offline)}
+${createQA("Q10 — Prix trop cher", r.prixTropCher)}
+${createQA("Q11 — Prix trop bas", r.prixBas)}
+${createQA("Q12 — Prix acceptable", r.prixAcceptable)}
+${createQA("Q13 — Prix idéal", r.prixIdeal)}
+${createQA("Q14 — Canal", r.canal)}
+${createQA("Q15 — Recommandation", r.recommandation)}
+${createQA("Q16 — Intention", r.intention)}
+${createQA("Q17 — Biens", r.biens)}
+${createQA("Q18 — Contact", r.contact)}
+
+`;
+
+}
+
+
+
+// ===== CREATION QUESTION / REPONSE =====
+
+function createQA(question,answer,isMulti=false){
+
+if(!answer) answer="—";
+
+return `
 
 <div class="qa">
-<span class="question">Profil :</span>
-<span class="answer">${r.profil||""}</span>
-</div>
 
-<div class="qa">
-<span class="question">Mobile Money :</span>
-<span class="answer">${r.mobileMoney||""}</span>
-</div>
+<span class="question">
+${question}
+</span>
 
-<div class="qa">
-<span class="question">Vol :</span>
-<span class="answer">${r.vol||""}</span>
-</div>
+<span class="answer ${isMulti?"multi":""}">
+${answer}
+</span>
 
-<div class="qa">
-<span class="question">Réaction :</span>
-<span class="answer">${r.reaction||""}</span>
-</div>
-
-<div class="qa">
-<span class="question">Inquiétude :</span>
-<span class="answer">${r.inquietude||""}</span>
-</div>
-
-<div class="qa">
-<span class="question">Usage GPS :</span>
-<span class="answer">${r.usage||""}</span>
-</div>
-
-<div class="qa">
-<span class="question">Fonctionnalités :</span>
-<span class="answer">${r.features||""}</span>
-</div>
-
-<div class="qa">
-<span class="question">Offline :</span>
-<span class="answer">${r.offline||""}</span>
-</div>
-
-<div class="qa">
-<span class="question">Prix trop cher :</span>
-<span class="answer">${r.prixTropCher||""}</span>
-</div>
-
-<div class="qa">
-<span class="question">Prix bas :</span>
-<span class="answer">${r.prixBas||""}</span>
-</div>
-
-<div class="qa">
-<span class="question">Prix acceptable :</span>
-<span class="answer">${r.prixAcceptable||""}</span>
-</div>
-
-<div class="qa">
-<span class="question">Prix idéal :</span>
-<span class="answer">${r.prixIdeal||""}</span>
-</div>
-
-<div class="qa">
-<span class="question">Canal :</span>
-<span class="answer">${r.canal||""}</span>
-</div>
-
-<div class="qa">
-<span class="question">Recommandation :</span>
-<span class="answer">${r.recommandation||""}</span>
-</div>
-
-<div class="qa">
-<span class="question">Intention :</span>
-<span class="answer">${r.intention||""}</span>
-</div>
-
-<div class="qa">
-<span class="question">Biens :</span>
-<span class="answer">${r.biens||""}</span>
-</div>
-
-<div class="qa">
-<span class="question">Contact :</span>
-<span class="answer">${r.contact||""}</span>
 </div>
 
 `;
@@ -243,15 +217,10 @@ const details=document.getElementById(
 `details-${index}`
 );
 
-if(openedIndex===index){
+// fermer ancien
 
-details.style.display="none";
-openedIndex=null;
-return;
-
-}
-
-if(openedIndex!==null){
+if(openedIndex!==null &&
+openedIndex!==index){
 
 document.getElementById(
 `details-${openedIndex}`
@@ -259,8 +228,19 @@ document.getElementById(
 
 }
 
+// toggle
+
+if(details.style.display==="block"){
+
+details.style.display="none";
+openedIndex=null;
+
+}else{
+
 details.style.display="block";
 openedIndex=index;
+
+}
 
 }
 
