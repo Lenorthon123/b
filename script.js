@@ -1,4 +1,4 @@
-// ===== GESTION DES REPONSES =====
+// ===== STOCKAGE =====
 
 let responses = JSON.parse(
 localStorage.getItem("responses") || "[]"
@@ -69,7 +69,7 @@ showDashboard();
 }
 
 
-// ===== AFFICHER DASHBOARD =====
+// ===== DASHBOARD =====
 
 function showDashboard(){
 
@@ -83,6 +83,8 @@ loadNames();
 
 // ===== LISTE DES NOMS =====
 
+let openedIndex = null;
+
 function loadNames(){
 
 responses = JSON.parse(
@@ -95,38 +97,17 @@ list.innerHTML="";
 
 responses.forEach((r,index)=>{
 
-const div=document.createElement("div");
+const card=document.createElement("div");
 
-div.className="nameCard";
+card.className="nameCard";
 
-div.innerText=
-(r.nom||"Sans nom")+" "+
-(r.prenom||"");
+card.innerHTML=`
 
-div.onclick=function(){
+<div class="nameTitle">
+${r.nom || "Sans nom"} ${r.prenom || ""}
+</div>
 
-showDetails(index);
-
-};
-
-list.appendChild(div);
-
-});
-
-}
-
-
-// ===== DETAILS PERSONNE =====
-
-function showDetails(index){
-
-const r = responses[index];
-
-const details=document.getElementById("details");
-
-details.innerHTML=`
-
-<h2>${r.nom} ${r.prenom}</h2>
+<div class="nameDetails" id="details-${index}" style="display:none;">
 
 <p><b>Commune :</b> ${r.commune||""}</p>
 
@@ -138,18 +119,74 @@ details.innerHTML=`
 
 <p><b>Inquiétude :</b> ${r.inquietude||""}</p>
 
+<p><b>Utilisation GPS :</b> ${r.usage||""}</p>
+
+<p><b>Prix acceptable :</b> ${r.prix||""}</p>
+
+<p><b>Canal achat :</b> ${r.canal||""}</p>
+
 <p><b>Intention :</b> ${r.intention||""}</p>
 
-<p><b>Biens :</b> ${r.biens||""}</p>
+<p><b>Nombre biens :</b> ${r.biens||""}</p>
 
 <p><b>Contact :</b> ${r.contact||""}</p>
 
+</div>
+
 `;
+
+card.onclick=function(){
+
+toggleDetails(index);
+
+};
+
+list.appendChild(card);
+
+});
 
 }
 
 
-// ===== DECONNEXION =====
+// ===== OUVRIR / FERMER =====
+
+function toggleDetails(index){
+
+const details=document.getElementById(
+`details-${index}`
+);
+
+// Si déjà ouvert → fermer
+
+if(openedIndex===index){
+
+details.style.display="none";
+openedIndex=null;
+
+return;
+
+}
+
+// Fermer ancien
+
+if(openedIndex!==null){
+
+document.getElementById(
+`details-${openedIndex}`
+).style.display="none";
+
+}
+
+// Ouvrir nouveau
+
+details.style.display="block";
+
+openedIndex=index;
+
+}
+
+
+// ===== LOGOUT =====
 
 function logout(){
 
