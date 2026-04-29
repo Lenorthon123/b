@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard Admin</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Dashboard Admin</h1>
+
+<div id="login">
+
+<input id="email" placeholder="Email">
+<input id="password" type="password" placeholder="Mot de passe">
+
+<button onclick="login()">Connexion</button>
+
+</div>
+
+<div id="dashboard" style="display:none;">
+
+<h2>Réponses collectées</h2>
+
+<p id="count"></p>
+
+<table border="1" cellpadding="8">
+
+<thead>
+<tr>
+<th>Commune</th>
+<th>Inquiétude</th>
+<th>Intention</th>
+<th>Contact</th>
+</tr>
+</thead>
+
+<tbody id="tbody"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
