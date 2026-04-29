@@ -1,49 +1,65 @@
-
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
+
 <meta charset="UTF-8">
+
 <title>Dashboard Admin</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
 <div class="container">
 
-<h1>Dashboard Admin</h1>
+<h1>Dashboard Administrateur</h1>
+
+
+<!-- LOGIN -->
 
 <div id="login">
 
 <input id="email" placeholder="Email">
-<input id="password" type="password" placeholder="Mot de passe">
 
-<button onclick="login()">Connexion</button>
+<input id="password"
+type="password"
+placeholder="Mot de passe">
+
+<button onclick="login()">
+
+Connexion
+
+</button>
 
 </div>
 
+
+<!-- DASHBOARD -->
+
 <div id="dashboard" style="display:none;">
 
-<h2>Réponses collectées</h2>
+<button onclick="logout()" class="logoutBtn">
 
-<p id="count"></p>
+Déconnexion
 
-<table border="1" cellpadding="8">
+</button>
 
-<thead>
-<tr>
-<th>Nom</th>
-<th>Prénom</th>
-<th>Commune</th>
-<th>Inquiétude</th>
-<th>Intention</th>
-<th>Contact</th>
-</tr>
-</thead>
+<h2>Répondants</h2>
 
-<tbody id="tbody"></tbody>
+<div id="nameList" class="nameList">
 
-</table>
+</div>
+
+<h2>Détails</h2>
+
+<div id="details" class="detailsBox">
+
+Cliquez sur un nom pour voir les réponses
+
+</div>
 
 </div>
 
@@ -52,4 +68,5 @@
 <script src="script.js"></script>
 
 </body>
+
 </html>
